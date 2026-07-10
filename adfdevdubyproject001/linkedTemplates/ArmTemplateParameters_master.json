@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevdubyproject001"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_PQT_accountKey": {
+			"value": ""
+		},
+		"LS_BLOB_CSV_ADLS_connectionString": {
+			"value": ""
+		},
+		"LS_GETMETADATA_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
+		"LS_ADLS_PQT_properties_typeProperties_url": {
+			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_properties_typeProperties_url": {
+			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
