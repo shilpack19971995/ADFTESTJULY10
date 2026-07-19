@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_PQT'"
 		},
+		"LS_ADLS_SQL_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_SQL_PARQUET'"
+		},
 		"LS_BLOB_CSV_ADLS_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BLOB_CSV_ADLS'"
@@ -30,6 +34,10 @@
 		"LS_GETMETADATA_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_GETMETADATA'"
+		},
+		"LS_SQLSERVER_TBLLKUP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_TBLLKUP'"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
@@ -39,9 +47,25 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevdubyproject.dfs.core.windows.net/"
 		},
+		"LS_ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
 		"LS_GETMETADATA_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-F9TVI0R0"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "RetailDW_Dev"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "TestUser"
 		},
 		"containerUri": {
 			"type": "string",
@@ -82,11 +106,17 @@
 					"LS_ADLS_PQT_accountKey": {
 						"value": "[parameters('LS_ADLS_PQT_accountKey')]"
 					},
+					"LS_ADLS_SQL_PARQUET_accountKey": {
+						"value": "[parameters('LS_ADLS_SQL_PARQUET_accountKey')]"
+					},
 					"LS_BLOB_CSV_ADLS_connectionString": {
 						"value": "[parameters('LS_BLOB_CSV_ADLS_connectionString')]"
 					},
 					"LS_GETMETADATA_accountKey": {
 						"value": "[parameters('LS_GETMETADATA_accountKey')]"
+					},
+					"LS_SQLSERVER_TBLLKUP_password": {
+						"value": "[parameters('LS_SQLSERVER_TBLLKUP_password')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
@@ -94,12 +124,44 @@
 					"LS_ADLS_PQT_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS_PQT_properties_typeProperties_url')]"
 					},
+					"LS_ADLS_SQL_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SQL_PARQUET_properties_typeProperties_url')]"
+					},
 					"LS_GETMETADATA_properties_typeProperties_url": {
 						"value": "[parameters('LS_GETMETADATA_properties_typeProperties_url')]"
+					},
+					"LS_SQLSERVER_TBLLKUP_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_TBLLKUP_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_TBLLKUP_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_TBLLKUP_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adfdevdubyproject001_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevdubyproject001_ArmTemplate_0')]"
+			]
 		}
 	]
 }

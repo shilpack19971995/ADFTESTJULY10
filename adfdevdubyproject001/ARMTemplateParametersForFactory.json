@@ -17,10 +17,16 @@
 		"LS_ADLS_PQT_accountKey": {
 			"value": ""
 		},
+		"LS_ADLS_SQL_PARQUET_accountKey": {
+			"value": ""
+		},
 		"LS_BLOB_CSV_ADLS_connectionString": {
 			"value": ""
 		},
 		"LS_GETMETADATA_accountKey": {
+			"value": ""
+		},
+		"LS_SQLSERVER_TBLLKUP_password": {
 			"value": ""
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
@@ -29,8 +35,20 @@
 		"LS_ADLS_PQT_properties_typeProperties_url": {
 			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
 		},
+		"LS_ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
 		"LS_GETMETADATA_properties_typeProperties_url": {
 			"value": "https://adlsdevdubyproject.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_server": {
+			"value": "LAPTOP-F9TVI0R0"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_database": {
+			"value": "RetailDW_Dev"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName": {
+			"value": "TestUser"
 		}
 	}
 }
